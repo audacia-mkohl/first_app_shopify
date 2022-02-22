@@ -1,36 +1,11 @@
 import React from "react";
-import gql from 'graphql-tag';
 import { GET_ORDER } from "../Graphql/Queries";
 import { useQuery } from 'react-apollo';
-
-const GET_ORDER_2 = gql`
-query getOrders {
-  orders(first: 5, reverse: true) {
-    edges {
-      node {
-        id
-        name
-        lineItems(first: 50) {
-          edges {
-            node {
-              id
-              title
-              fulfillmentService {
-                id
-                location {
-                  id
-                  name
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-`;
-
+import {
+  Card,
+  List,
+  DataTable 
+} from '@shopify/polaris';
 
 export default function ListOfOrder() {
     const { data, loading, error } = useQuery(GET_ORDER);
@@ -40,12 +15,22 @@ export default function ListOfOrder() {
   
     return (
       <div>
-        <h1>SpaceX Launches</h1>
-        <ul>
-          {data.orders.edges.map((launch) => (
-            <li key={launch.node.id}>{launch.node.name} // {launch.node.id} </li>
-          ))}
-        </ul>
+        <h1>Orders List</h1>
+          <Card> 
+            <div>
+            
+              {data.orders.edges.map((launch) => (
+                
+                //<p key={launch.node.id}>Order's id : {launch.node.id} || Order's Number : {launch.node.name} </p>,
+                <List>
+                  <br/>
+                  <List key={launch.node.id}>{launch.node.id} &emsp; {launch.node.name} </List>
+                  <br/>
+                </List>
+              ))}   
+              
+            </div>
+          </Card>
       </div>
     );
   }

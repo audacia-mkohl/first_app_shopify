@@ -7,6 +7,8 @@ import {
 
 
 function DataTableExample() {
+
+    
     const rows = [
       ['gid://shopify/Order/4155091583046', 1003, "twilight glitter"],
       ['gid://shopify/Order/4153463799878', 1004, "aged night"],
