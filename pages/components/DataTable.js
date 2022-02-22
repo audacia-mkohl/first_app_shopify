@@ -8,37 +8,26 @@ import {
 
 function DataTableExample() {
     const rows = [
-      ['Emerald Silk Gown', '$875.00', 124689, 140, '$122,500.00'],
-      ['Mauve Cashmere Scarf', '$230.00', 124533, 83, '$19,090.00'],
-      [
-        'Navy Merino Wool Blazer with khaki chinos and yellow belt',
-        '$445.00',
-        124518,
-        32,
-        '$14,240.00',
-      ],
+      ['gid://shopify/Order/4155091583046', 1003, "twilight glitter"],
+      ['gid://shopify/Order/4153463799878', 1004, "aged night"],
+      ['gid://shopify/Order/4153463439430', 1005, "autumn field"],
     ];
   
     return (
-      <Page title="Sales by product">
+      <Page title="Orders Table">
         <Card>
           <DataTable
             columnContentTypes={[
               'text',
               'numeric',
-              'numeric',
-              'numeric',
-              'numeric',
+              'text',
             ]}
             headings={[
-              'Product',
-              'Price',
-              'SKU Number',
-              'Net quantity',
-              'Net sales',
+              'Orders ID',
+              'Name',
+              'Product Name',
             ]}
             rows={rows}
-            totals={['', '', '', 255, '$155,830.00']}
           />
         </Card>
       </Page>
