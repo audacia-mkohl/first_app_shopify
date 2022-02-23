@@ -1,4 +1,6 @@
 import React from 'react';
+import { GET_ORDER } from "../Graphql/Queries";
+import { useQuery } from 'react-apollo';
 import {
     Card,
     Page,
@@ -7,32 +9,34 @@ import {
 
 
 function DataTableExample() {
+  const { data, loading, error } = useQuery(GET_ORDER);
 
     
     const rows = [
-      ['gid://shopify/Order/4155091583046', 1003, "twilight glitter"],
-      ['gid://shopify/Order/4153463799878', 1004, "aged night"],
-      ['gid://shopify/Order/4153463439430', 1005, "autumn field"],
+      ['gid://shopify/Order/4155091583046', "1003"],
+      ['gid://shopify/Order/4153463799878', "1004"],
+      ['gid://shopify/Order/4153463439430', "1005"],
     ];
+
   
     return (
-      <Page title="Orders Table">
-        <Card>
-          <DataTable
-            columnContentTypes={[
-              'text',
-              'numeric',
-              'text',
-            ]}
-            headings={[
-              'Orders ID',
-              'Name',
-              'Product Name',
-            ]}
-            rows={rows}
-          />
-        </Card>
-      </Page>
+      <div>
+        <Page title="Orders Table">
+          <Card>
+            <DataTable
+              columnContentTypes={[
+                'text',
+                'text',
+              ]}
+              headings={[
+                'Orders ID',
+                'Name',
+              ]}
+              rows={rows}
+            />
+          </Card>
+        </Page>
+      </div>
     );
   }
 

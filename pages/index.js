@@ -9,8 +9,8 @@ class Index extends React.Component {
 
     return (
       <Page>
-        <DataTableExample/>
         <ListOfOrder/>
+        <DataTableExample/>
       </Page>
     );
   }
