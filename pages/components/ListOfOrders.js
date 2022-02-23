@@ -4,9 +4,9 @@ import { useQuery } from 'react-apollo';
 import {
   Card,
   Layout,
-  List,
   Page
 } from '@shopify/polaris';
+import ActionListWithMediaExample from './ExportData';
 
 
 export default function ListOfOrder() {
@@ -26,6 +26,8 @@ export default function ListOfOrder() {
                       <th>NAME</th>
                       <th>ID</th>
                       <th>FULFILLMENT STATUS</th>
+                      <th>NAME</th>
+                      <th>NAME</th>
                     </tr>
                   </thead>
                   {data.orders.edges.map((launch) => (
@@ -45,6 +47,8 @@ export default function ListOfOrder() {
             </Card>
           </Layout.Section>
         </Layout>
+        <br/>
+        <ActionListWithMediaExample/>
       </Page>
     );
   }

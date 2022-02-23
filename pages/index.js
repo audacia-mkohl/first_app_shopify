@@ -4,11 +4,10 @@ import DataTableExample from './components/DataTable';
 import ListOfOrder from './components/ListOfOrders';
 
 class Index extends React.Component {
-  state = { open: false };
-  render() {
 
-    return (
-      <Page>
+  render(){
+    return(
+      <Page>        
         <ListOfOrder/>
         <DataTableExample/>
       </Page>
@@ -17,3 +16,5 @@ class Index extends React.Component {
 }
 
 export default Index;
+
+
